@@ -1,3 +1,10 @@
+#' CMAQ_1km_raster
+#'
+#' @param dim two-element numeric vector, as from [CMAQ_1km_dim()]
+#' @param crs CRS object, as from [CMAQ_1km_crs()]
+#'
+#' @return [terra::rast] object
+#' @export
 CMAQ_1km_raster <- function (
     dim = CMAQ_1km_dim(),
     crs = CMAQ_1km_crs()
