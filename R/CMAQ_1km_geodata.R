@@ -1,3 +1,11 @@
+#' @noRd
+CMAQ_1km_geodata_ <- function (...) {
+  rst_obj <- CMAQ_1km_raster(...)
+  vect_obj <- terra::as.polygons(rst_obj, aggregate = FALSE)
+  sf_obj <- sf::st_as_sf(vect_obj)
+  return(st_sf(tibble::as_tibble(sf_obj)))
+}
+
 #' CMAQ_1km_geodata
 #'
 #' Create a `sf` object with default 1km CRS and dimensions
@@ -10,9 +18,6 @@
 #'
 #' @return sf object
 #' @export
-CMAQ_1km_geodata <- function (...) {
-  rst_obj <- CMAQ_1km_raster(...)
-  vect_obj <- terra::as.polygons(rst_obj, aggregate = FALSE)
-  sf_obj <- sf::st_as_sf(vect_obj)
-  return(st_sf(tibble::as_tibble(sf_obj)))
-}
+CMAQ_1km_geodata <-
+  memoise::memoise(
+    CMAQ_1km_geodata_)
