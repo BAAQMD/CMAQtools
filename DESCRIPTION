@@ -10,7 +10,8 @@ Depends:
   tbltools,
   geotools,
   strtools,
-  ggtools
+  ggtools,
+  memoise
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
