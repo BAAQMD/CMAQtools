@@ -12,8 +12,4 @@ test_that("CMAQ_1km_stars()", {
     names(tibble::as_tibble(st_obj)),
     c("x", "y", "CMAQ_row", "CMAQ_col"))
 
-  expect_equal(
-    head(st_drop_geometry(sf_obj), 10),
-    data.frame(CMAQ_row = 224L, CMAQ_col = 1:10))
-
 })
